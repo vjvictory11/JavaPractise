@@ -13,7 +13,7 @@ public class HeapSort {
         //do heapify again for remaining tree
 
         for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(arr, i, n);
+            heapify(arr, i, n-1);
         }
 
         for (int i = n - 1; i > 0; i--) {

@@ -9,18 +9,19 @@ public class Kmp {
 
     static boolean match(char[] pattern, char[] input) {
         int m = pattern.length;
-        int[] dp = new int[m];
+        // lps[i] tells you that till i what is the longest prefix which is also a suffix
+        int[] lps = new int[m];
         int j = 0;
         for (int i = 1; i < m; i++) {
             if(pattern[i]==pattern[j]) {
-                dp[i] = j+1;
+                lps[i] = j+1;
                 j++;
             } else {
                 while(j>0 && pattern[j]!=pattern[i]) {
-                    j = dp[j];
+                    j = lps[j];
                 }
                 if(pattern[i]==pattern[j]) {
-                    dp[i] = j+1;
+                    lps[i] = j+1;
                 } else {
                     j=0;
                 }
@@ -40,7 +41,7 @@ public class Kmp {
                 if(k==0) {
                     i++;
                 } else {
-                    k = dp[k - 1];
+                    k = lps[k - 1];
                 }
             }
         }

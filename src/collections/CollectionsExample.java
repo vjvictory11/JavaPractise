@@ -9,11 +9,15 @@ public class CollectionsExample {
 
         int[] arr = {4,6,1,7,9,4,3};
 
+        Arrays.sort(arr);
+
         //convert an array to list;
 
         List<Integer> list = Arrays.stream(arr)
                 .boxed()
                 .collect(Collectors.toList());
+
+
 
 
 
@@ -26,13 +30,16 @@ public class CollectionsExample {
 
         arrayList.add(1);
         arrayList.remove(0);
+        arrayList.add(3);
         arrayList.contains(1);
+        arrayList.set(0,2);
         arrayList.sort(Integer::compareTo);
 
         //Maps
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         hashMap.putIfAbsent(2,3);
+        hashMap.getOrDefault(2,-1);
         hashMap.containsKey(2);
         hashMap.containsValue(3);
         for (Map.Entry<Integer, Integer> entry: hashMap.entrySet()) {
@@ -51,11 +58,18 @@ public class CollectionsExample {
 
         //Queue
         ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.add(1);
+        deque.add(2);
+        deque.add(3);
+        deque.peekFirst();
+        deque.pollLast();
+        System.out.println("deque"+deque);
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         priorityQueue.add(1);
         priorityQueue.peek();
         priorityQueue.poll();
         priorityQueue.isEmpty();
+
 
         for(Integer d: priorityQueue) {
             System.out.println(d);
@@ -64,7 +78,15 @@ public class CollectionsExample {
         deque.addFirst(2);
         deque.addLast(2);
         deque.removeFirst();
-        deque.removeLast();
+        deque.pollFirst();
+//        deque.removeLast();
+
+        ArrayDeque<Data> dataArrayDeque = new ArrayDeque<>();
+        dataArrayDeque.addLast(new Data(2));
+        dataArrayDeque.addLast(new Data(3));
+        dataArrayDeque.addFirst(new Data(5));
+        dataArrayDeque.addFirst(new Data(6));
+        System.out.println("dataArrayDeque: "+dataArrayDeque);
 
         //Set
         Set<Integer> hashSet = new HashSet<>();
@@ -92,8 +114,22 @@ public class CollectionsExample {
         System.out.println(list1);
 
 
+        deque.add(1);
+        deque.add(2);
+        deque.add(3);
+        deque.removeFirst();
+        System.out.println(deque.stream().collect(Collectors.toList()));
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
+        maxHeap.add(2);
+        maxHeap.add(1);
+        maxHeap.add(4);
+        System.out.println(maxHeap.peek());
+
 
 
 
     }
 }
+
+

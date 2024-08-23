@@ -1,0 +1,6 @@
+Provide LLD for Task scheduler.
+Design distibuted rate limiter.
+HLD round(Instagram upload and some other features)
+Questions around high level design of a public cloud server (API gateway)
+Design Distributed cache
+Design rate limiter ( have explained using leaky bucket algorithm, interviewer was looking for tokenization algorithm but he was OK with the approach)
